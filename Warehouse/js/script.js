@@ -10,7 +10,7 @@ for (var i = 0; i < 16; i++) {
 }*/
 
 
-document.getElementById("subBtnHouse").addEventListener("click",showMenu);
+/*document.getElementById("subBtnHouse").addEventListener("click",showMenu);
 document.getElementById("subBtnDiamon").addEventListener("click",showMenuDiamont);
 
 
@@ -22,4 +22,4 @@ function showMenuDiamont() {
     document.getElementById("navBoxHome").classList.toggle("navBoxDisplayNone");
     document.getElementById("navBoxDiamont").classList.toggle("navBoxDisplayFlex");
 
-}
+}*/
