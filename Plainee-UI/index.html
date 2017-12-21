@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function() {
+            $(".boxList").niceScroll();
+
+        });
+    </script>
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 2000,
+                values: [ 50, 1450 ],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] );
+                    $( "#amount_1" ).val( "$" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ));
+            $( "#amount_1" ).val( "$" + $( "#slider-range" ).slider( "values", 1 ));
+
+            // Изменение местоположения ползунка при вводиде данных в первый элемент input
+            $("input#amount").change(function(){
+                var value1=$("input#amount").val();
+                var value2=$("input#amount_1").val();
+                if(parseInt(value1) > parseInt(value2)){
+                    value1 = value2;
+                    $("input#amount").val(value1);
+                }
+                $("#slider-range").slider("values",0,value1);
+            });
+
+            // Изменение местоположения ползунка при вводиде данных в второй элемент input
+            $("input#amount_1").change(function(){
+                var value1=$("input#amount").val();
+                var value2=$("input#amount_1").val();
+
+                if(parseInt(value1) > parseInt(value2)){
+                    value2 = value1;
+                    $("input#amount_1").val(value2);
+                }
+                $("#slider-range").slider("values",1,value2);
+            });
+
+            // фильтрация ввода в поля
+            jQuery('#amount, #amount_1').keypress(function(event){
+                var key, keyChar;
+                if(!event) var event = window.event;
+
+                if (event.keyCode) key = event.keyCode;
+                else if(event.which) key = event.which;
+
+                if(key==null || key==0 || key==8 || key==13 || key==9 || key==46 || key==37 || key==39 ) return true;
+                keyChar=String.fromCharCode(key);
+
+                if(!/\d/.test(keyChar))	return false;
+
+            });
+        } );
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".boxList").niceScroll();
+
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row LodoFix">
+        <div class="col-lg-6 col-md-offset-3">
+            <div class="box">
+                <div class="FirstLogo">
+                    <img src="img/logoIcon.png" alt="">
+                </div>
+                <h1 class="LogoTitle">PLAINEE UI KIT</h1>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="box box--lg box--pap">
+                    <ul class="nav">
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">REQUESTS</a></li>
+                        <li><a href="#">ELEMENTS</a></li>
+                    </ul>
+                    <div class="status">
+                        <span class="online ">
+                        </span>
+                        <span class="offlane active ">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 ">
+                <div class="box box--lg tue clearfix">
+                    <div class="profile">
+                        <a href="#" class="profile__img">
+                            <img src="img/image1.png" alt=""></a>
+                            <div class="profole__info">
+                                <span>logged in as</span>
+                                <h4 class="profile__name">
+                                    <a href="#">Andrei Josan</a>
+                                </h4>
+                            </div>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic settings" src="img/icons/ic--settings.png" alt="">
+                        </a>
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic alerts" src="img/icons/ic--alerts.png" alt="">
+                            <kbd>
+                                4
+                            </kbd>
+                        </a>
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic calendarIcon" src="img/icons/ic--calendar.png" alt="">
+                            <kbd>
+                                21
+                            </kbd>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar box box--lg">
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="profile devider">
+                        <a href="#" class="profile__img">
+                            <img src="img/image1.png" alt=""></a>
+                        <div class="profole__info">
+                            <h4 class="profile__name">
+                                <a href="#">Andrei Josan</a>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <ul class="nav devider">
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">REQUESTS</a></li>
+                        <li><a href="#">ELEMENTS</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-5">
+                    <div class="nav-icon">
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic settings" src="img/icons/ic--settings.png" alt="">
+                        </a>
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic alerts" src="img/icons/ic--alerts.png" alt="">
+                            <kbd>
+                                4
+                            </kbd>
+                        </a>
+                        <a href="#" class="nav-icon__item">
+                            <img class="ic calendar" src="img/icons/ic--calendar.png" alt="">
+                            <kbd>
+                                21
+                            </kbd>
+                        </a>
+                    </div>
+                    <form action="#" class="navbar-form">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit" class="form-button"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">
+                <div class="login box box--lg box--br">
+                    <h4 class="box__title">
+                        ACCESS ACCOUNT
+                    </h4>
+                    <form action="#">
+                        <input type="text" class="input_icon user" >
+                        <input type="password" class="input_icon pass">
+                        <div class="clearfix">
+                            <div class="social">
+                                <a href="#" class="btn btn--info"><img class="tweet" src="img/icons/twitterIcon.png" alt=""></a>
+                                <a href="#" class="btn btn--info-dark"><img class="fb" src="img/icons/facebookIcon.png" alt=""></a>
+                            </div>
+                            <button value="submit" class="btn--login">Login</button>
+                            <span class="or">or</span>
+                        </div>
+                        <div class="line"></div>
+                        <futer class="login__footer">
+                            <a href="#">Forgot password</a>
+                            <a href="#"><span>REGISTER</span> new account</a>
+                        </futer>
+                    </form>
+                </div>
+            </div>
+            <div class="col-xs-7">
+                <div class="box box--lg box--br">
+                    <h4 class="box__title">
+                        REGISTER A NEW ACCOUNT
+                    </h4>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-xs-6"><input type="text" class="input_icon user" placeholder="desired username"></div>
+                            <div class="col-xs-6"><input type="text" class="input_icon maile" placeholder="enter e-mail address"></div>
+                            <div class="col-xs-6"> <input type="password" class="input_icon pass" placeholder="desired password"></div>
+                            <div class="col-xs-6"> <input type="password" class="input_icon pass" placeholder="●●●●"></div>
+                        </div>
+                        <div class="progress">
+                            <span class="progress__count"><span>77</span>/100</span>
+                            <span class="progress__title">Password strength:</span>
+                            <div class="progress__wrap">
+                                <div style='width: 77%'></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="checkbox" >
+                                    <input type="checkbox" id="11">
+                                    <label for="11">Registering means that you agree to our <a href="#">Terms of Service</a></label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6"><button value="submit" class="btn--login">REGISTER</button></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="box box--lg">
+                    <h4 class="box__title">
+                        MY SKILLS
+                    </h4>
+                    <div class="progress">
+                        <span class="progress__count">90%</span>
+                        <span class="progress__title">Photoshop</span>
+                        <div class="progress__wrap">
+                            <div style='width: 90%'></div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <span class="progress__count">65%</span>
+                        <span class="progress__title">Illustrator</span>
+                        <div class="progress__wrap">
+                            <div style='width: 65%'></div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <span class="progress__count">75%</span>
+                        <span class="progress__title">HTML & CSS</span>
+                        <div class="progress__wrap">
+                            <div style='width: 75%'></div>
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <span class="progress__count">40%</span>
+                        <span class="progress__title">PHP</span>
+                        <div class="progress__wrap">
+                            <div style='width: 40%'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="box box--lg">
+                    <div class="profile">
+                        <a href="" class="profile__img"><img src="img/profileImage.png" alt="">
+                            <div class="status">
+                                <span class="online active">
+                                </span>
+                            </div>
+                        </a>
+                        <h4 class="profile__name">
+                            <a href="#">Andrei Josan</a>
+                        </h4>
+                        <p class="profile__descr">web & UI/UX designer</p>
+                        <div class="social">
+                            <a href="#" class="btn btn__tweet btn--sm"><img class="tweet" src="img/icons/twitterIcon.png" alt=""></a>
+                            <a href="#" class="btn btn__fb btn--sm"><img class="fb" src="img/icons/facebookIcon.png" alt=""></a>
+                            <a href="#" class="btn btn__google btn--sm"><img class="fb" src="img/icons/googlePlusIcon.png" alt=""></a>
+                            <a href="#" class="btn btn__plus btn--sm"><img class="fb" src="img/icons/plusIcon.png" alt=""></a>
+                        </div>
+                        <div class="follow">
+                            <a href="#">+follow</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="NextPrev clearfix">
+                            <a href="#" class="previous">PREVIOUS</a>
+                            <a href="#" class="next">NEXT</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="Profile2 clearfix">
+                            <div class="profile">
+                                <a href="#" class="profile__img">
+                                    <img src="img/profileImage.png" alt=""></a>
+                                <div class="profole__info">
+                                    <h4 class="profile__name">
+                                        <a href="#">Andrei Josan</a>
+                                    </h4>
+                                    <div class="progress">
+                                        <div class="progress__wrap">
+                                            <span class="progress__count">624</span>
+                                            <span class="progress__title">SUBSCRIBE</span>
+                                            <div style='width: 65%'></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="Profile3 clearfix">
+                            <div class="profile">
+                                <a href="#" class="profile__img">
+                                    <img src="img/profileImage.png" alt=""></a>
+                                <div class="profole__info">
+                                    <h4 class="profile__name">
+                                        <a href="#">Andrei Josan</a>
+                                    </h4>
+                                    <span><a href="#">Bucharest, Romania</a></span>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="stats">
+                                <div class="friends devider">
+                                    <div class="stats__info">
+                                        <h4 class="calcs">
+                                            245
+                                        </h4>
+                                        <span>fiends</span>
+                                    </div>
+                                </div>
+                                <div class="views">
+                                    <div class="views__info">
+                                        <h4 class="calcs">
+                                            7654
+                                        </h4>
+                                        <span>views</span>
+                                    </div>
+                                </div>
+                                <div class="likes">
+                                    <div class="likes__info">
+                                        <h4 class="calcs">
+                                            809
+                                        </h4>
+                                        <span>likes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="video">
+                    <div class="video__poster">
+                        <img src="img/playerImage.png" alt="">
+                        <div class="video__cover">
+                            <div class="share">
+                                <a href="#" class="btn btn__plus btn--info"><img class="sharePlus" src="img/icons/sharePlusIcon.png" alt=""></a>
+                                <a href="#" class="btn btn__tweet btn--info"><img class="tweet" src="img/icons/twitterIconShare.png" alt=""></a>
+                                <a href="#" class="btn btn__fb btn--info"><img class="fb" src="img/icons/facebookIconShare.png" alt=""></a>
+                                <a href="#" class="btn btn__google btn--info"><img class="googlePlus" src="img/icons/googlePlusIconShare.png" alt=""></a>
+                            </div>
+                            <button class="btn-replay"><img src="img/icons/replayIcon.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="video__panel box">
+                        <div class="panel__item">
+                            <button class="panel__btn"><img src="img/icons/playIcon.png" alt=""></button>
+                        </div>
+                        <div class="panel__item panel__item--slider">
+                            <div class="progress">
+                                <div class="progress__wrap">
+                                    <div style="width:50% ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel__item"><span class="time">2:30/4:58</span></div>
+                        <div class="panel__item br">
+                            <button class="panel__btn"><img src="img/icons/volumeIcon.png" alt=""></button>
+                        </div>
+                        <div class="panel__item panel__item--volume">
+                            <div class="progress">
+                                <div class="progress__wrap">
+                                    <div style="width:50% ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel__item br">
+                            <button class="panel__btn active">HD</button>
+                        </div>
+                        <div class="panel__item br">
+                            <button class="panel__btn"><img src="img/icons/expandIcon.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                    <div class="nowPlaying">
+                        <div class="titlePlaing clearfix">
+                            <div class="titleName">
+                                <p>
+                                    NOW PLAYING
+                                </p>
+                                <a href="#">
+                                    Great video of the...
+                                </a>
+                            </div>
+                            <div class="nextPreviosIcon">
+                                <a href="#" class="prevIcon"><img src="img/icons/previousIcon.png" alt=""></a>
+                                <a href="#"><img src="img/icons/nextIcon.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="videoThisPlaylist clearfix">
+                        <p>
+                            VIDEOS IN THIS PLAYLIST:
+                        </p>
+                        <a href="#">
+                            (13)
+                        </a>
+                    </div>
+                    <div class="playlist">
+                        <div class="thepage">
+                            <div class="txtblock">
+                                <div class="boxList">
+                                    <div class="list">
+                                        <a href="#">Cat videos everywhere</a>
+                                        <p>
+                                            8:27
+                                        </p>
+                                        <button class="watchLater">
+                                           <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Flat design explained in a...</a>
+                                        <p>
+                                            5:00
+                                        </p>
+                                        <button class="watchLater">
+                                           <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Top videos currently You...</a>
+                                        <p>
+                                            21:58
+                                        </p>
+                                        <button class="watchLater">
+                                           <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Travelling to Romania</a>
+                                        <p>
+                                            1:40
+                                        </p>
+                                        <button class="watchLater">
+                                           <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Cat videos everywhere</a>
+                                        <p>
+                                            8:27
+                                        </p>
+                                        <button class="watchLater">
+                                           <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Cat videos everywhere</a>
+                                        <p>
+                                            8:27
+                                        </p>
+                                        <button class="watchLater">
+                                            <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                    <div class="list">
+                                        <a href="#">Cat videos everywhere</a>
+                                        <p>
+                                            8:27
+                                        </p>
+                                        <button class="watchLater">
+                                            <span class="toolp" data-tooltip="Watch later">
+			                                    <img src="img/icons/watchLaterIcon.png" alt="">
+		                                    </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="box">
+                    <div class="product__img">
+                        <a href="#">
+                            <img src="img/productImage.png" alt="">
+                        </a>
+                        <span class="new">new</span>
+                    </div>
+                    <div class="product__head">
+                        <span class="product-price">49$</span>
+                        <h4 class="product__title">
+                            <a href="#">
+                                WooCommerce Hood
+                            </a>
+                        </h4>
+                        <span class="product__category">
+                            Streetwear / Hoodies
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn--success">CART</a>
+                    <a href="#" class="btn btn--success whit">WISHLIST</a>
+                </div>
+            </div>
+            <div class="col-xs-8 prod">
+                <div class="box">
+                    <div class="product__img">
+                        <a href="#">
+                            <img src="img/productImageOll.png" alt="">
+                        </a>
+                    </div>
+                    <div class="product-content">
+                        <div class="product__head">
+                            <span class="product-price">49$</span>
+                            <h4 class="product__title">
+                                <a href="#">
+                                    WooCommerce Hood
+                                </a>
+                            </h4>
+                            <span class="product__category">
+                            Streetwear / Hoodies
+                        </span>
+                        </div>
+                        <div class="product-info">
+                            <p>Lorem ipsum dolor sit amet, an sed scripta oporteat maiestatis,
+                                vix an lorem insolens, brute tamquam assuev sed an. Pri id iriure
+                                accusam.
+                            </p>
+                            <div class="raiting">
+                                <span class="raiting__title">
+                                    3 reviews from customers
+                                </span>
+                                <div class="raiting-star">
+                                    <div style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                               <div class="buttons">
+                                   <button class="minus"><img src="img/icons/minusIcon.png" alt=""></button>
+                                   <input type="text" value="1">
+                                   <button class="plus"><img src="img/icons/plusIconGG.png" alt=""></button>
+                               </div>
+                            </div>
+                            <div class="col-xs-7 cad">
+                                <a href="#" class="btn btn--success">add to CART</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Sale">
+                    <div class="onSale">
+                        <div class="titleSale">
+                            <h4>
+                                ON SALE:
+                            </h4>
+                        </div>
+                        <div class="prodSale">
+                            <div class="itemSale">
+                                <a href="#">
+                                    <img src="img/productImageSale1.png" alt="">
+                                </a>
+                            </div>
+                            <div class="itemSale">
+                                <a href="#">
+                                    <img src="img/productImageSale2.png" alt="">
+                                </a>
+                            </div>
+                            <div class="itemSale">
+                                <a href="#">
+                                    <img src="img/productImageSale3.png" alt="">
+                                </a>
+                            </div>
+                            <div class="itemSale">
+                                <a href="#">
+                                    <img src="img/productImageSale4.png" alt="">
+                                </a>
+                            </div>
+                            <div class="itemSale">
+                                <a href="#">
+                                    <img src="img/productImageSale5.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 cart">
+                <div class="box triang">
+                    <div class="shopCadHead">
+                        <a href="">
+                            <h4>
+                                SHOPPING CART (5)
+                            </h4>
+                        </a>
+                    </div>
+                    <div class="ChecHead">
+                        <a href="#">CHECKOUT</a>
+                    </div>
+                </div>
+                <div class="box cart">
+                    <div class="cartItems">
+                        <div class="titleCartItems">
+                            <a href="#">
+                                <img src="img/productImageSale1.png" alt="">
+                            </a>
+                            <div class="NameCardItem">
+                                <h4 class="product__titleCard">
+                                    <a href="#">
+                                        Nickel Creek - Love of...
+                                    </a>
+                                </h4>
+                                <span class="product__categoryCard">
+                                    Music / Song
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="costCartItems">
+                            <span class="amount">x1</span>
+                            <span class="product-price">19$</span>
+                        </div>
+                    </div>
+
+
+                    <div class="cartItems">
+                        <div class="titleCartItems">
+                            <a href="#">
+                                <img src="img/productImageSale2.png" alt="">
+                            </a>
+                            <div class="NameCardItem">
+                                <h4 class="product__titleCard">
+                                    <a href="#">
+                                        Bon Iver - Blood Bank
+                                    </a>
+                                </h4>
+                                <span class="product__categoryCard">
+                                    Music / Albums
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="costCartItems">
+                            <span class="amount">x2</span>
+                            <span class="product-price">20$</span>
+                        </div>
+                    </div>
+
+                    <div class="cartItems">
+                        <div class="titleCartItems">
+                            <a href="#">
+                                <img src="img/productImageSale5.png" alt="">
+                            </a>
+                            <div class="NameCardItem">
+                                <h4 class="product__titleCard">
+                                    <a href="#">
+                                        WooCommerce Hoodie
+                                    </a>
+                                </h4>
+                                <span class="product__categoryCard">
+                                    Streetwear / Hoodies
+                                </span>
+                            </div>
+                        </div>
+                        <div class="costCartItems">
+                            <span class="amount">x1</span>
+                            <span class="product-price">49$</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="box total">
+                    <div class="footCat">
+                        <span class="product-price">158$</span>
+                        <h4 class="product__total">
+                            TOTAL TO PAY
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 botom">
+                <div class="row">
+                    <div class="col-xs-6 ">
+                        <div class="box shopCat">
+                            <div class="productImgSale">
+                                <a href="#">
+                                    <img src="img/imageSale.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <span class="sale">sale</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="box SaleBid">
+                            <div class="productImgSale">
+                                <div class="product-contentSale">
+                                    <div class="product__headSale">
+                                        <span class="product-priceSale">49$</span>
+                                        <h4 class="product__titleSale">
+                                            <a href="#">
+                                                WooCommerce  Hoodie
+                                            </a>
+                                        </h4>
+                                        <span class="product__categorySale">
+                                            Streetwear / Hoodies
+                                        </span>
+                                    </div>
+                                    <div class="raiting">
+                                        <div class="raiting-star">
+                                            <div style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="buttonSale">
+                                        <a href="#" class="btn btn--success cartBt">CART</a>
+                                        <a href="#" class="btn btn--success whit">WISHLIST</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box Slide">
+                            <div class="priceFilter">
+                                <div id="slider-range" class="lineRange"></div>
+                                <p>
+                                    <input type="text" id="amount" class="inputRange">
+                                    <input type="text" id="amount_1" class="inputRange">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">
+                <div class="box boxFix">
+                    <h4 class="upload">
+                        UPLOAD A FILE
+                    </h4>
+                    <div class="drag">
+                        <div class="dragSap">
+                            <img src="img/icons/uploadIcon.png" alt="">
+                            <p>Drag files here</p>
+                        </div>
+                    </div>
+                        <div class="btnDrag">
+                            <a href="#" class="btn btn--success">BROWSE FILE</a>
+                            <a href="#" class="btn btn--success whit">FILES LIST</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-xs-7 colFix7">
+                <div class="boxYouFile">
+                    <div class="box_File_head">
+                        <div class="filesHeader">
+                            <h4 class="titleFiles">
+                                YOUR FILES
+                            </h4>
+                            <form action="#" class="navbar-form">
+                                <input type="text" placeholder="Search...">
+                                <button type="submit" class="form-button"></button>
+                            </form>
+                            <div class="filesHeadIcon">
+                                <a href="#" class="filesIcon"><img src="img/icons/folderIcon.png" alt=""></a>
+                                <a href="#" class="filesIcon"><img src="img/icons/addFolderIcon.png" alt=""></a>
+                                <a href="#" class="filesIcon"><img src="img/icons/cloudDownloadIcon.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="filesBody">
+                        <div class="sabmitFileAlert">
+                            <div class="filesAlert">
+                                <p>
+                                    Successfully uploaded 2 files
+                                </p>
+                                <button class="btnFiles"></button>
+                            </div>
+                        </div>
+                        <div class="fileTicet">
+                            <div class="folder">
+                                <div class="nameFile">
+                                    <p>
+                                        Work Files
+                                    </p>
+                                </div>
+                                <div class="typeFile">
+                                    <p>
+                                        folder
+                                    </p>
+                                </div>
+                                <div class="sizeFile">
+                                    <p>
+                                        -
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="nameFile">
+                                    <p>
+                                        Freebie1.rar
+                                    </p>
+                                </div>
+                                <div class="typeFile">
+                                    <p>
+                                        archive
+                                    </p>
+                                </div>
+                                <div class="sizeFile">
+                                    <p>
+                                        84MB
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="nameFile">
+                                    <p>
+                                        Holiday landscape
+                                    </p>
+                                </div>
+                                <div class="typeFile">
+                                    <p>
+                                        JPEG file
+                                    </p>
+                                </div>
+                                <div class="sizeFile">
+                                    <p>
+                                        5.16MB
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="nameFile">
+                                    <p>
+                                        Plainee UI Kit
+                                    </p>
+                                </div>
+                                <div class="typeFile">
+                                    <p>
+                                        PSD file
+                                    </p>
+                                </div>
+                                <div class="sizeFile">
+                                    <p>
+                                        1.02GB
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="folder">
+                                <div class="nameFile">
+                                    <p>
+                                        Expenses - AUG
+                                    </p>
+                                </div>
+                                <div class="typeFile">
+                                    <p>
+                                        Excel file
+                                    </p>
+                                </div>
+                                <div class="sizeFile">
+                                    <p>
+                                        596KB
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-9 fix9">
+                <div class="box boxUpload">
+                    <h4 class="titleUploading">
+                        UPLOADING...
+                    </h4>
+                    <div class="line"></div>
+                    <div class="uploading">
+                        <div class="uplodProgList">
+                            <div class="titleProgress">
+                                <div class="nambeProg">1</div>
+                                <div class="progress__title">Design Procr</div>
+                                <div class="sizeFileProg">(140MB)</div>
+                            </div>
+                            <div class="progress">
+                                <span class="progress__count">OK</span>
+                                <div class="progress__wrap">
+                                    <div style='width:100%'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="uplodProgList">
+                            <div class="titleProgress">
+                                <div class="nambeProg">2</div>
+                                <div class="progress__title"> Picture 2</div>
+                                <div class="sizeFileProg">(662KB)</div>
+                            </div>
+                            <div class="progress">
+                                <span class="progress__count">25%</span>
+                                <div class="progress__wrap">
+                                    <div style='width: 25%'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line"></div>
+                        <div class="uplodProgList">
+                            <div class="titleProgress">
+                                <div class="nambeProg">3</div>
+                                <div class="progress__title">SchoolAshilt</div>
+                                <div class="sizeFileProg">(1.47MB)</div>
+                            </div>
+                            <div class="progress">
+                                <span class="progress__count">83%</span>
+                                <div class="progress__wrap">
+                                    <div style='width: 83%'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="dragUploading">
+                        <div class="dragSap">
+                            <img src="img/icons/uploadIcon.png" alt="">
+                            <p>Drag files here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="box">
+                        <div class="product-contentSale">
+                            <span class="new"></span>
+                            <div class="product__headSale">
+                                <img src="img/icons/fileIconDownload.png" class="product-priceSale" alt="">
+                                <h4 class="product__titleSale">
+                                    <a href="#">
+                                        Plainee UI Kit.rar
+                                    </a>
+                                </h4>
+                                <span class="product__categorySale">
+                                   2 days ago
+                                </span>
+                            </div>
+                            <div class="buttonSale">
+                                <a href="#" class="btn btn--success cartBt">DOWNLOAD</a>
+                            </div>
+                            <span class="product__categorySale">
+                                891MB
+                            </span>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="box">
+                    <div class="calendar">
+                        <table id="calendar2">
+                            <thead>
+                            <tr><td>‹<td colspan="5"><td>›
+                            <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+                            <tbody>
+                        </table>
+                        <div class="btnDrag">
+                            <div class="btnDragTwu">
+                                <a href="#" class="btn btn--success">add event</a>
+                                <a href="#" class="btn btn--success whit">SEE EVENT LIST</a>
+                            </div>
+                            <a href="#" class="btn btn--success whit btnNext"><img src="img/icons/nextarrowIcon.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="box postFix">
+                    <div class="postListItems">
+                        <div class="titlePostItems">
+                            <a href="#">
+                                <img src="img/posterImage.png" alt="">
+                            </a>
+                            <div class="NamePostItem">
+                                <h4 class="product__titleCard">
+                                    <a href="#">
+                                        Huge party Event
+                                    </a>
+                                </h4>
+                                <span class="product__categoryCard">
+                                    @Wings Club, 12FEB AT 20:00PM
+                                </span>
+                                <div class="btnDragPost">
+                                    <a href="#" class="btn btn--success">SEE EVENT</a>
+                                    <a href="#" class="btn btn--success whit">GET TICKETS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box postFix">
+                    <div class="postListItems">
+                        <div class="titlePostItems">
+                            <a href="#">
+                                <img src="img/posterImage.png" alt="">
+                            </a>
+                            <div class="NamePostItem">
+                                <h4 class="product__titleCard">
+                                    <a href="#">
+                                        Huge party Event
+                                    </a>
+                                </h4>
+                                <span class="product__categoryCard">
+                                    @Wings Club, 12FEB AT 20:00PM
+                                </span>
+                                <div class="btnDragPost">
+                                    <a href="#" class="btn btn--success">SEE EVENT</a>
+                                    <a href="#" class="btn btn--success whit">GET TICKETS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="NextPrev ">
+                        <div class="prevBtnSc">
+                            <a href="#" class="previous">PREVIOUS</a>
+                        </div>
+                        <div class="Scbtn">
+                            <a href="#"><div class="btnScBoll"></div></a>
+                            <a href="#"> <div class="btnScBoll activeBoll"></div></a>
+                            <a href="#"><div class="btnScBoll"></div></a>
+                            <a href="#"><div class="btnScBoll"></div></a>
+                        </div>
+                        <div class="nextBtnSc">
+                            <a href="#" class="next">NEXT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+    <script>
+        function Calendar2(id, year, month) {
+            var Dlast = new Date(year,month+1,0).getDate(),
+                D = new Date(year,month,Dlast),
+                DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
+                DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+                calendar = '<tr>',
+                month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+            if (DNfirst != 0) {
+                for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+            }else{
+                for(var  i = 0; i < 6; i++) calendar += '<td>';
+            }
+            for(var  i = 1; i <= Dlast; i++) {
+                if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                    calendar += '<td class="today">' + i;
+                }else{
+                    calendar += '<td>' + i;
+                }
+                if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+                    calendar += '<tr>';
+                }
+            }
+            for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+            document.querySelector('#'+id+' tbody').innerHTML = calendar;
+            document.querySelector('#'+id+' thead td:nth-child(2)').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
+            document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
+            document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
+            if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {  // чтобы при перелистывании месяцев не "подпрыгивала" вся страница, добавляется ряд пустых клеток. Итог: всегда 6 строк для цифр
+                document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+            }
+        }
+        Calendar2("calendar2", new Date().getFullYear(), new Date().getMonth());
+        // переключатель минус месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(1)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)-1);
+        }
+        // переключатель плюс месяц
+        document.querySelector('#calendar2 thead tr:nth-child(1) td:nth-child(3)').onclick = function() {
+            Calendar2("calendar2", document.querySelector('#calendar2 thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#calendar2 thead td:nth-child(2)').dataset.month)+1);
+        }
+    </script>
+</body>
+</html>
