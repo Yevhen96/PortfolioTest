@@ -386,13 +386,19 @@ a{
               margin-bottom: 0;
               margin-left: 7px;
               color: #c5c5c5;
+              &:hover {
+                cursor: pointer;
+              }
+            }
+            p:hover .fa-heart{
+              color: #fa857b;
             }
             .fa-heart{
               color: #c5c5c5;
-
-            }
-            &:hover{
-              cursor: pointer;
+              &:hover{
+                cursor: pointer;
+                color: #fa857b;
+              }
             }
           }
         }
@@ -472,7 +478,12 @@ a{
           img{
             display: block;
             margin: auto auto 10px auto;
+            transition: all 0.3s ease-out;
           }
+           &:hover img{
+              -webkit-transform: scale(1.1);
+                transition: all 0.3s ease-out;
+            }
           p{
             .roboto;
             color:#939393;
@@ -1300,6 +1311,19 @@ a{
       .col-lg-9{
         .futerBlocLogo{
           height: 372px;
+        }
+      }
+    }
+    .row{
+      .col-lg-9{
+        .row{
+          .col-xs-6{
+            .hedSlideImg{
+              img{
+                opacity: 0.4;
+              }
+            }
+          }
         }
       }
     }
